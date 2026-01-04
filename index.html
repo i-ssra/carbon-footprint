@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CarbonFootprint Pro</title>
+
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#1f3c88">
+
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+<header class="topbar">
+  <img src="logo.png" alt="Logo entreprise" style="height:50px;">
+  <h1>CarbonFootprint Pro</h1>
+</header>
+
+<main class="app">
+  <form class="card">
+    <h2>Informations générales</h2>
+    <input type="text" id="companyName" placeholder="Nom de l’entreprise">
+    <input type="number" id="employees" placeholder="Nombre d’employés">
+
+    <h2>Scope 1 – Émissions directes</h2>
+    <input type="number" id="fuel" placeholder="Carburant (L/an)">
+    <input type="number" id="companyCarsKm" placeholder="Km véhicules/an">
+    <input type="number" id="gaz" placeholder="Gaz réfrigérant (kg/an)">
+
+    <h2>Scope 2 – Consommation d’énergie</h2>
+    <input type="number" id="electricity" placeholder="Électricité (kWh/an)">
+    <input type="number" id="heating" placeholder="Chauffage (kWh/an)">
+
+    <h2>Scope 3 – Émissions indirectes</h2>
+    <input type="number" id="commuteKm" placeholder="Trajet domicile-travail (km/jour)">
+    <select id="commuteType">
+      <option value="car">Voiture</option>
+      <option value="public">Transport public</option>
+      <option value="bike">Vélo / marche</option>
+    </select>
+
+    <div class="actions">
+      <button type="button" onclick="calculate()">Calculer</button>
+      <button type="button" id="installBtn" style="display:none;">Installer l’application</button>
+    </div>
+  </form>
+
+  <section class="card">
+    <h2>Résultats</h2>
+    <div id="result">Veuillez lancer le calcul.</div>
+    <canvas id="graphCO2"></canvas>
+  </section>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
